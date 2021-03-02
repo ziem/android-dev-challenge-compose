@@ -15,8 +15,12 @@
  */
 package com.example.androiddevchallenge.ui.theme
 
+import androidx.compose.foundation.shape.GenericShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.unit.dp
 
 val shapes = Shapes(
@@ -24,3 +28,27 @@ val shapes = Shapes(
     medium = RoundedCornerShape(4.dp),
     large = RoundedCornerShape(0.dp)
 )
+
+val TearDropShape = GenericShape { size, _ ->
+    arcTo(
+        rect = Rect(
+            Offset(x = 0f, y = 0f),
+            Size(width = size.width, height = size.height)
+        ),
+        startAngleDegrees = -270f,
+        sweepAngleDegrees = 270f,
+        forceMoveTo = false
+    )
+
+    lineTo(size.width, size.height)
+
+    arcTo(
+        rect = Rect(
+            Offset(size.width - 128f, size.height - 128f),
+            Size(128f, 128f)
+        ),
+        startAngleDegrees = 0f,
+        sweepAngleDegrees = 90f,
+        forceMoveTo = false
+    )
+}

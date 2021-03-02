@@ -18,14 +18,37 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.HiltViewModelFactory
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navArgument
+import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.feature.puppies.PuppiesScreen
+import com.example.androiddevchallenge.feature.puppies.PuppiesViewModel
+import com.example.androiddevchallenge.feature.puppy.PuppyScreen
+import com.example.androiddevchallenge.feature.puppy.PuppyViewModel
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -37,13 +60,46 @@ class MainActivity : AppCompatActivity() {
 }
 
 // Start building your app here!
+@ExperimentalFoundationApi
 @Composable
 fun MyApp() {
     Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+        Scaffold(topBar = {
+            TopAppBar(title = {
+                Row {
+                    Image(painter = painterResource(id = R.drawable.ic_pets), contentDescription = "Pets icon")
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(text = "Woof!")
+                }
+            })
+        }, content = {
+            NavGraph()
+        })
     }
 }
 
+@ExperimentalFoundationApi
+@Composable
+fun NavGraph() {
+    val navController = rememberNavController()
+
+    NavHost(navController, startDestination = "puppies") {
+        composable("puppies") { backStackEntry ->
+            val puppiesViewModel: PuppiesViewModel =
+                viewModel(null, HiltViewModelFactory(LocalContext.current, backStackEntry))
+            PuppiesScreen(puppiesViewModel, navController)
+        }
+        composable(
+            "puppy/{puppyId}",
+            arguments = listOf(navArgument("puppyId") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val puppyViewModel: PuppyViewModel = viewModel(null, HiltViewModelFactory(LocalContext.current, backStackEntry))
+            PuppyScreen(puppyViewModel)
+        }
+    }
+}
+
+@ExperimentalFoundationApi
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun LightPreview() {
@@ -52,10 +108,28 @@ fun LightPreview() {
     }
 }
 
+@ExperimentalFoundationApi
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
         MyApp()
+    }
+}
+
+@Preview
+@Composable
+fun Shadow() {
+    Box(modifier = Modifier
+        .width(300.dp)
+        .height(300.dp)
+        .background(Color.Blue)) {
+        Box(
+            modifier = Modifier
+                .width(200.dp)
+                .height(200.dp)
+                .background(Color.Red)
+                .shadow(4.dp)
+        )
     }
 }
