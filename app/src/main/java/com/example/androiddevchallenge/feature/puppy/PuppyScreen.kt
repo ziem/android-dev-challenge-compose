@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.feature.puppy
 
 import androidx.compose.foundation.background
@@ -175,18 +190,18 @@ fun PuppyScreen(puppyViewModel: PuppyViewModel) {
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                fontSize = 22.sp, text =
+                fontSize = 22.sp,
+                text =
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dictum placerat est sed dictum. Suspendisse consectetur nisi semper consequat rutrum. Pellentesque efficitur, eros ac gravida rhoncus, augue leo placerat justo, ac fringilla nisl enim a odio. Vivamus vehicula euismod risus vitae ullamcorper. Morbi est dui, pharetra quis venenatis eu, malesuada eget elit. Aenean aliquet nisi eu eros volutpat, ac luctus eros feugiat. Donec faucibus interdum lectus vel suscipit. Aenean euismod libero at tellus posuere, in congue tellus egestas.\n" +
-                        "\n" +
-                        "Vestibulum in felis ut felis tincidunt auctor ut sit amet odio. In hac habitasse platea dictumst. Suspendisse varius, orci non blandit dictum, est lacus venenatis mauris, at ultrices urna mauris vel urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis interdum pellentesque fermentum. Ut ut porta enim. Cras quis ex feugiat, dapibus lectus eu, aliquet turpis.\n" +
-                        "\n" +
-                        "Morbi rutrum pellentesque urna, in consequat felis blandit et. Morbi tincidunt, est sed eleifend euismod, nulla ex suscipit odio, vitae varius sapien nisl ut odio. Morbi ullamcorper elit hendrerit, congue enim vel, posuere sapien. Integer convallis semper nibh, sed tempus nibh tristique quis. Cras sed vestibulum sapien, non vehicula ipsum. Cras tincidunt aliquam odio, vel mattis nisi lacinia dignissim. Integer hendrerit arcu vitae odio lacinia, et blandit justo condimentum. Ut at auctor eros. Aenean mattis mi vel magna scelerisque ornare.\n" +
-                        "\n" +
-                        "In tincidunt, ante non efficitur ornare, sem velit venenatis ante, in tristique sapien enim id ante. Sed ex justo, feugiat in leo at, dapibus convallis nibh. Etiam pharetra scelerisque erat, vitae ullamcorper ante commodo at. Mauris nec libero mauris. In vulputate egestas sem, pretium tempor tellus auctor eget. Maecenas suscipit arcu nec ligula mattis, suscipit maximus metus finibus. Suspendisse et turpis ut leo aliquam tincidunt in non neque. Vivamus lacinia leo ut lacus tristique pretium. In hac habitasse platea dictumst. Praesent commodo magna sit amet aliquam malesuada. Vivamus ultricies nibh non ante vestibulum dignissim.\n" +
-                        "\n" +
-                        "Donec facilisis in magna at auctor. Sed efficitur a nisi eu dapibus. Nullam mi ex, varius nec tincidunt eu, egestas vel nibh. Donec lacus ipsum, pretium commodo commodo ut, accumsan in felis. Praesent vitae malesuada erat. Sed sapien ex, tincidunt eu nisl in, congue tristique felis. Duis erat tellus, gravida eu ex nec, malesuada lacinia tellus. In hac habitasse platea dictumst. Ut molestie suscipit justo at mattis. Nam pulvinar neque sagittis tortor tempor convallis. Donec placerat gravida eros, nec commodo leo faucibus eu. Quisque dignissim lorem eu purus ultricies varius nec vel diam. Phasellus scelerisque sit amet orci non pharetra. Pellentesque sagittis lectus nec est dapibus, id eleifend ex porta. Morbi vitae enim eu lacus tempus sagittis. "
+                    "\n" +
+                    "Vestibulum in felis ut felis tincidunt auctor ut sit amet odio. In hac habitasse platea dictumst. Suspendisse varius, orci non blandit dictum, est lacus venenatis mauris, at ultrices urna mauris vel urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis interdum pellentesque fermentum. Ut ut porta enim. Cras quis ex feugiat, dapibus lectus eu, aliquet turpis.\n" +
+                    "\n" +
+                    "Morbi rutrum pellentesque urna, in consequat felis blandit et. Morbi tincidunt, est sed eleifend euismod, nulla ex suscipit odio, vitae varius sapien nisl ut odio. Morbi ullamcorper elit hendrerit, congue enim vel, posuere sapien. Integer convallis semper nibh, sed tempus nibh tristique quis. Cras sed vestibulum sapien, non vehicula ipsum. Cras tincidunt aliquam odio, vel mattis nisi lacinia dignissim. Integer hendrerit arcu vitae odio lacinia, et blandit justo condimentum. Ut at auctor eros. Aenean mattis mi vel magna scelerisque ornare.\n" +
+                    "\n" +
+                    "In tincidunt, ante non efficitur ornare, sem velit venenatis ante, in tristique sapien enim id ante. Sed ex justo, feugiat in leo at, dapibus convallis nibh. Etiam pharetra scelerisque erat, vitae ullamcorper ante commodo at. Mauris nec libero mauris. In vulputate egestas sem, pretium tempor tellus auctor eget. Maecenas suscipit arcu nec ligula mattis, suscipit maximus metus finibus. Suspendisse et turpis ut leo aliquam tincidunt in non neque. Vivamus lacinia leo ut lacus tristique pretium. In hac habitasse platea dictumst. Praesent commodo magna sit amet aliquam malesuada. Vivamus ultricies nibh non ante vestibulum dignissim.\n" +
+                    "\n" +
+                    "Donec facilisis in magna at auctor. Sed efficitur a nisi eu dapibus. Nullam mi ex, varius nec tincidunt eu, egestas vel nibh. Donec lacus ipsum, pretium commodo commodo ut, accumsan in felis. Praesent vitae malesuada erat. Sed sapien ex, tincidunt eu nisl in, congue tristique felis. Duis erat tellus, gravida eu ex nec, malesuada lacinia tellus. In hac habitasse platea dictumst. Ut molestie suscipit justo at mattis. Nam pulvinar neque sagittis tortor tempor convallis. Donec placerat gravida eros, nec commodo leo faucibus eu. Quisque dignissim lorem eu purus ultricies varius nec vel diam. Phasellus scelerisque sit amet orci non pharetra. Pellentesque sagittis lectus nec est dapibus, id eleifend ex porta. Morbi vitae enim eu lacus tempus sagittis. "
             )
-
         }
     }
 }

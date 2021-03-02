@@ -66,20 +66,25 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MyApp() {
     Surface(color = MaterialTheme.colors.background) {
-        Scaffold(topBar = {
-            TopAppBar(title = {
-                Row {
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_pets),
-                        contentDescription = "Pets icon"
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = "Woof!")
-                }
-            })
-        }, content = {
-            NavGraph()
-        })
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Row {
+                            Image(
+                                painter = painterResource(id = R.drawable.ic_pets),
+                                contentDescription = "Pets icon"
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(text = "Woof!")
+                        }
+                    }
+                )
+            },
+            content = {
+                NavGraph()
+            }
+        )
     }
 }
 
