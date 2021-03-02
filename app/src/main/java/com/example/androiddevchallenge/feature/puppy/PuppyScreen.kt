@@ -1,7 +1,17 @@
 package com.example.androiddevchallenge.feature.puppy
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
@@ -164,8 +174,9 @@ fun PuppyScreen(puppyViewModel: PuppyViewModel) {
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            Text(fontSize = 22.sp, text =
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dictum placerat est sed dictum. Suspendisse consectetur nisi semper consequat rutrum. Pellentesque efficitur, eros ac gravida rhoncus, augue leo placerat justo, ac fringilla nisl enim a odio. Vivamus vehicula euismod risus vitae ullamcorper. Morbi est dui, pharetra quis venenatis eu, malesuada eget elit. Aenean aliquet nisi eu eros volutpat, ac luctus eros feugiat. Donec faucibus interdum lectus vel suscipit. Aenean euismod libero at tellus posuere, in congue tellus egestas.\n" +
+            Text(
+                fontSize = 22.sp, text =
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dictum placerat est sed dictum. Suspendisse consectetur nisi semper consequat rutrum. Pellentesque efficitur, eros ac gravida rhoncus, augue leo placerat justo, ac fringilla nisl enim a odio. Vivamus vehicula euismod risus vitae ullamcorper. Morbi est dui, pharetra quis venenatis eu, malesuada eget elit. Aenean aliquet nisi eu eros volutpat, ac luctus eros feugiat. Donec faucibus interdum lectus vel suscipit. Aenean euismod libero at tellus posuere, in congue tellus egestas.\n" +
                         "\n" +
                         "Vestibulum in felis ut felis tincidunt auctor ut sit amet odio. In hac habitasse platea dictumst. Suspendisse varius, orci non blandit dictum, est lacus venenatis mauris, at ultrices urna mauris vel urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis interdum pellentesque fermentum. Ut ut porta enim. Cras quis ex feugiat, dapibus lectus eu, aliquet turpis.\n" +
                         "\n" +

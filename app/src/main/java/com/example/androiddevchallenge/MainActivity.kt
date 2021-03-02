@@ -20,18 +20,20 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -67,7 +69,10 @@ fun MyApp() {
         Scaffold(topBar = {
             TopAppBar(title = {
                 Row {
-                    Image(painter = painterResource(id = R.drawable.ic_pets), contentDescription = "Pets icon")
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_pets),
+                        contentDescription = "Pets icon"
+                    )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(text = "Woof!")
                 }
@@ -93,7 +98,8 @@ fun NavGraph() {
             "puppy/{puppyId}",
             arguments = listOf(navArgument("puppyId") { type = NavType.IntType })
         ) { backStackEntry ->
-            val puppyViewModel: PuppyViewModel = viewModel(null, HiltViewModelFactory(LocalContext.current, backStackEntry))
+            val puppyViewModel: PuppyViewModel =
+                viewModel(null, HiltViewModelFactory(LocalContext.current, backStackEntry))
             PuppyScreen(puppyViewModel)
         }
     }
