@@ -116,20 +116,3 @@ fun DarkPreview() {
         MyApp()
     }
 }
-
-@Preview
-@Composable
-fun Shadow() {
-    Box(modifier = Modifier
-        .width(300.dp)
-        .height(300.dp)
-        .background(Color.Blue)) {
-        Box(
-            modifier = Modifier
-                .width(200.dp)
-                .height(200.dp)
-                .background(Color.Red)
-                .shadow(4.dp)
-        )
-    }
-}
